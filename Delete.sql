@@ -1,0 +1,10 @@
+-- DELETE FROM table_name column_name;
+USE june_19;
+DELETE FROM table1 WHERE age;
+DELETE FROM table2 WHERE movie_name = "A Game of Thrones";
+DROP TABLE table1;
+TRUNCATE TABLE table4;
+-- add 20 rows for each table in tourism database;
+-- delete 5 rows for each table;
+-- drop one table;
+-- truncate 2 tables;
