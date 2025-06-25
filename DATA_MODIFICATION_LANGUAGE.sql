@@ -16,3 +16,16 @@ SELECT * FROM travel_agency WHERE rating_status NOT IN ('Very Good' , 'Excellent
 SELECT * FROM tourist_spot WHERE spot_id BETWEEN 6 AND 10;
 -- DUPLICATE - CREATE TABLE new_table_name AS SELECT * FROM old_table_name;
 CREATE TABLE vaccation_spot AS SELECT * FROM tourist_spot;
+SELECT * FROM packages WHERE duration_days IN(3,5,7); 
+SELECT * FROM customers WHERE age IN(25,30,35);
+SELECT * FROM bookings WHERE status IN ('Confirmed', 'Pending');
+SELECT * FROM destinations WHERE country NOT IN ('India', 'Nepal');
+SELECT * FROM customers WHERE country NOT IN ('India', 'Bangladesh');
+SELECT * FROM bookings WHERE status NOT IN ('Cancelled', 'Pending');
+SELECT * FROM packages WHERE season NOT IN ('Winter', 'Monsoon');
+-- SELECT * FROM customers WHERE id NOT IN(
+SELECT * FROM destinations WHERE rating BETWEEN 3.5 AND 5;
+SELECT * FROM packages WHERE price BETWEEN 10000 AND 30000;
+SELECT * FROM customers WHERE age BETWEEN 25 AND 40;
+SELECT * FROM bookings WHERE booking_date BETWEEN '2024-01-01' AND '2024-12-31';
+SELECT * FROM packages WHERE duration_days BETWEEN 3 AND 7;
