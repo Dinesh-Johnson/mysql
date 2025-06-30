@@ -23,9 +23,12 @@ SELECT * FROM destinations WHERE country NOT IN ('India', 'Nepal');
 SELECT * FROM customers WHERE country NOT IN ('India', 'Bangladesh');
 SELECT * FROM bookings WHERE status NOT IN ('Cancelled', 'Pending');
 SELECT * FROM packages WHERE season NOT IN ('Winter', 'Monsoon');
--- SELECT * FROM customers WHERE id NOT IN(
+-- e. Retrieve customers whose id is NOT IN the bookings table (i.e., never booked).
 SELECT * FROM destinations WHERE rating BETWEEN 3.5 AND 5;
 SELECT * FROM packages WHERE price BETWEEN 10000 AND 30000;
 SELECT * FROM customers WHERE age BETWEEN 25 AND 40;
 SELECT * FROM bookings WHERE booking_date BETWEEN '2024-01-01' AND '2024-12-31';
 SELECT * FROM packages WHERE duration_days BETWEEN 3 AND 7;
+-- e. Show all packages where the season is 'Winter' AND the destination rating is above 4.5.
+SELECT customer_id FROM bookings WHERE status NOT IN('Cancelled','Pending');
+ALTER TABLE bookings RENAME COLUMN status TO booking_status;

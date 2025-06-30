@@ -1,0 +1,24 @@
+USE tourism;
+SELECT customer_name FROM customers WHERE SUBSTR(customer_name,1,1) IN('A');
+SELECT * FROM destinations WHERE country LIKE '%land';
+SELECT name FROM destinations WHERE type='Beach';
+SELECT * FROM customers WHERE LENGTH(customer_name) =5;
+SELECT * FROM destinations WHERE SUBSTR(name,1,1) LIKE('S') AND SUBSTR(name,-1,1) LIKE('a');
+SELECT * FROM bookings WHERE booking_status LIKE 'Confirmed' OR booking_status LIKE 'Cancelled';
+SELECT * FROM customers WHERE customer_name LIKE '%an%';
+SELECT * FROM travel_agency WHERE SUBSTR(agency_address,1,1) BETWEEN '0' AND '9';
+SELECT customer_name FROM customers WHERE customer_name LIKE '%sh%';
+SELECT SUBSTR(name,1,4) FROM destinations;
+SELECT SUBSTRING_INDEX(email,'@',-1) AS domain FROM customers;
+SELECT INSTR(email,'@')as domain FROM customers;
+SELECT customer_name FROM customers WHERE SUBSTR(customer_name,3,1) IN('r');
+SELECT customer_name FROM customers WHERE SUBSTR(customer_name,1,1) BETWEEN 'A' AND 'E';
+SELECT * FROM packages WHERE season LIKE 'Sum%' OR season LIKE '%soon'  OR season LIKE 'Win%' ;
+SELECT name FROM destinations WHERE LENGTH(name) BETWEEN '5' AND '10';
+SELECT name FROM destinations WHERE SUBSTR(name,1,1) BETWEEN 'K' AND 'R';
+SELECT * FROM customers WHERE SUBSTR(customer_name,1,1) BETWEEN 'A' AND 'M';
+SELECT UPPER(customer_name) FROM customers;
+SELECT LOWER(email)FROM customers;
+SELECT customer_name FROM customers WHERE customer_name LIKE 'john';
+SELECT UPPER(customer_name) FROM customers WHERE customer_name LIKE 'S%';
+SELECT * FROM destinations

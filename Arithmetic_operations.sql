@@ -1,0 +1,40 @@
+use june_19;
+CREATE TABLE furniture(id INT,furiture_name VARCHAR(50),furnitur_type VARCHAR(20),cost DECIMAL(10,2));
+INSERT INTO furniture VALUES(1,'SOFA','Teak wood',7000.00);
+INSERT INTO furniture VALUES(2,'SOFA','Wood',4000.00);
+INSERT INTO furniture VALUES(3,'RECLINER','Normal Wood',13000.00);
+INSERT INTO furniture VALUES(4,'Office Chair','Aluminium',23000.00);
+INSERT INTO furniture VALUES(5,'Gaming Chair','Aluminium',15000.00);
+INSERT INTO furniture VALUES(6,'Tea Table','Teak Wook',6000.00);
+INSERT INTO furniture VALUES(7,'Dinning Table','Teak Wook',12000.00);
+SELECT * FROM furniture;
+DESC furniture;
+-- SUM - SELECT SUM (column_name) AS temp_column_name FROM table_name;
+SELECT SUM(cost) AS sum_cost FROM furniture;
+SELECT MIN(cost) AS min_cost FROM furniture;
+SELECT MAX(cost) AS max_cost FROM furniture;
+SELECT DISTINCT (furiture_name) FROM furniture;
+SELECT DISTINCT (furnitur_type) FROM furniture;
+-- Select everthing which has distinct values
+SELECT COUNT(*) FROM furniture;
+SELECT AVG(cost) AS average FROM furniture;
+-- 15. Return all destination names whose rating is equal to the maximum rating of destinations in their country.
+-- 15. Return all attraction names whose rating is equal to the maximum rating of Attractions in their country.
+use tourism;
+SELECT name, MAX(rating) as max_ratinf FROM destinations;
+CREATE TABLE attractions(id INT,attraction_name VARCHAR(50),country VARCHAR(50),rating INT);
+INSERT INTO attractions VALUES(1,'Taj Mahal','India',10);
+INSERT INTO attractions VALUES(2,'Tirupathi Temple','India',5);
+INSERT INTO attractions VALUES(3,'London Eye','Britian',9);
+INSERT INTO attractions VALUES(4,'London Tower Bridge','Britian',4);
+INSERT INTO attractions VALUES(5,'Colosseum','Italy',8);
+INSERT INTO attractions VALUES(6,'Ponte Trevi','Italy',7);
+INSERT INTO attractions VALUES(7,'Eiffile Tower','France',3);
+INSERT INTO attractions VALUES(8,'Basilica De Pope','France',6);
+SELECT * FROM attractions;
+-- syntax :SELECT column_name , AGGREGATE_FUNC(column_name) FROM table_name GROU BY conditional_column_name HAVING AGGREGATE_FUNC;
+SELECT country ,MAX(rating) FROM attractions GROUP BY country HAVING MAX(rating) ;
+SELECT attraction_name,country,rating FROM attractions GROUP BY attraction_name,country,rating HAVING rating =(SELECT MAX(rating) FROM attractions WHERE country = attractions.country );
+SELECT name,country,rating FROM destinations GROUP BY name,country,rating HAVING rating=(SELECT MAX(rating)FROM destinations WHERE country = destinations.country);
+SELECT COUNT(country)-COUNT(DISTINCT country) FROM destinations;
+SELECT id - customer_name FROM customers WHERE country = 'India';
